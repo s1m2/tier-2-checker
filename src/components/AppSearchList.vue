@@ -6,5 +6,7 @@ defineProps<{ organisations: Organisation[] }>();
 </script>
 
 <template>
-  <AppSearchListItem v-for="(organisation, index) in organisations" :key="index" :organisation="organisation" />
+  <div class="h-96 overflow-y-auto">
+    <AppSearchListItem v-for="(organisation, index) in organisations" :key="index" :organisation="organisation" />
+  </div>
 </template>

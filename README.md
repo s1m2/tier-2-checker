@@ -1,6 +1,8 @@
 # chrome-extension
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a chrome extension developed in Vue 3. This application leverages tailwind css for styling.
+
+It is connected to a Node and express backend and mongodb database.
 
 ## Recommended IDE Setup
 

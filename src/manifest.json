@@ -1,6 +1,6 @@
 {
   "name": "Tier 2 company verifier",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "Verify if a company offers Tier 2 visa sponsorship",
   "manifest_version": 3,
   "author": "Sam Macharia",
