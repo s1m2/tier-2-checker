@@ -1,31 +1,33 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue';
+import type { Organisation} from '@/types/organisation';
+
 import BaseInput from './components/BaseInput.vue';
+import AppSearchList from './components/AppSearchList.vue';
+import { useFetch } from './composables/useFetch'; 
 
 const search = ref('');
-const organisations = ref([]);
+const statusResult = ref('');
+const organisations = ref<Organisation[]>([]);
 
 const searchOrganisations = async () => {
-  if (search.value === '') return;
-
-  const response = await fetch(`http://localhost:3000/api/organisations?search=${search.value}`);
-  const data = await response.json();
-  organisations.value = data;
-};
+  if (search.value === '') return
+  const { data, status } = await useFetch(search.value);
+  organisations.value = data.value
+  statusResult.value = status.value
+}
 
 watchEffect(() => {
   searchOrganisations();
 });
-
 </script>
 
 <template>
-  <h3>Tier 2 Verifier</h3>
-  <BaseInput v-model="search" />
-  
-  <ul>
-    <li v-for="(organisation, index) in organisations" :key="index">
-      {{ organisation['Organisation Name'] }}
-    </li>
-  </ul>
+  <div class="p-8">
+    <h1 class="text-xl font-medium mb-5">Tier 2 Verifier</h1>
+    <BaseInput v-model="search" class="mb-5" />
+
+    <AppSearchList v-if="organisations.length" :organisations="organisations" />
+    <p v-if="organisations.length === 0 && statusResult==='success'" class="text-center">No results found</p>
+  </div>
 </template>
