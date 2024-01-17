@@ -15,5 +15,5 @@ const model = computed({
 </script>
 
 <template>
-  <input type="text" name="search" id="search" placeholder="Type a company name" v-model="model" class="p-2 w-full">
+  <input autocomplete="off" type="text" name="search" id="search" placeholder="Type a company name" v-model="model" class="p-2 w-full">
 </template>

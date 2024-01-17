@@ -2,7 +2,9 @@
 import AppSearchListItem from '@/components/AppSearchListItem.vue';
 import type { Organisation} from '@/types/organisation';
 
-defineProps<{ organisations: Organisation[] }>();
+defineProps<{ 
+  organisations: Organisation[] 
+}>();
 </script>
 
 <template>

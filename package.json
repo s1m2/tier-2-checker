@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --  && copy \\src/manifest.json dist\\",
+    "build": "run-p type-check \"build-only {@}\" && copy .\\src\\manifest.json dist\\",     
     "preview": "vite preview",
     "test:unit": "vitest",
     "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
@@ -30,6 +30,7 @@
     "@vue/test-utils": "^2.4.1",
     "@vue/tsconfig": "^0.4.0",
     "autoprefixer": "^10.4.16",
+    "cross-env": "^7.0.3",
     "cypress": "^13.2.0",
     "eslint": "^8.49.0",
     "eslint-plugin-cypress": "^2.15.1",
